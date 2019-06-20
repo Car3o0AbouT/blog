@@ -1,4 +1,29 @@
 spring:
+#  激活环境配置文件
+  profiles:
+    active: dev
+---
+#开发环境配置
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mariadb://127.0.0.1:3306/my_blog
+    username: admin
+    password: admin
+    driver-class-name: org.mariadb.jdbc.Driver
+---
+#测试环境配置
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:mariadb://127.0.0.1:3306/mytest
+    username: admin
+    password: admin
+    driver-class-name: org.mariadb.jdbc.Driver
+---
+#正式环境配置
+spring:
+  profiles: prod
   datasource:
     url: jdbc:mariadb://127.0.0.1:3306/mytest
     username: admin
